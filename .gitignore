@@ -1,0 +1,5 @@
+node_modules/
+out/
+*.vsix
+.vscode-test/
+2026-01-28-cursorvisual.txt

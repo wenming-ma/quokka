@@ -1,0 +1,78 @@
+{
+  "name": "quokka",
+  "displayName": "Quokka",
+  "description": "Quokka - Developer productivity tools for VS Code and Cursor",
+  "version": "1.1.0",
+  "publisher": "wenming",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "resources/quokka.png",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "submenus": [
+      {
+        "id": "quokka.submenu",
+        "label": "Quokka"
+      }
+    ],
+    "commands": [
+      {
+        "command": "quokka.jumpToVS",
+        "title": "Jump to VS"
+      },
+      {
+        "command": "quokka.switchHeaderSource",
+        "title": "Switch Header/Source"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "quokka.submenu",
+          "group": "navigation@99"
+        }
+      ],
+      "quokka.submenu": [
+        {
+          "command": "quokka.jumpToVS",
+          "group": "navigation"
+        },
+        {
+          "command": "quokka.switchHeaderSource",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Quokka",
+      "properties": {
+        "quokka.visualStudioVersion": {
+          "type": "string",
+          "default": "VisualStudio.DTE.17.0",
+          "description": "Visual Studio DTE ProgID (17.0 for VS2022, 16.0 for VS2019)"
+        },
+        "quokka.excludeFolders": {
+          "type": "array",
+          "default": ["build", "out", "dist", "node_modules", ".git", "bin", "obj", "Debug", "Release", "x64", "x86"],
+          "description": "Folders to exclude when searching for header/source files"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}
