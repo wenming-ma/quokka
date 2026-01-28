@@ -4,6 +4,10 @@
   "description": "Quokka - Developer productivity tools for VS Code and Cursor",
   "version": "1.1.0",
   "publisher": "wenming",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wenming-ma/quokka"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -28,6 +32,10 @@
       {
         "command": "quokka.switchHeaderSource",
         "title": "Switch Header/Source"
+      },
+      {
+        "command": "quokka.copyFileName",
+        "title": "Copy File Name"
       }
     ],
     "menus": {
@@ -44,6 +52,10 @@
         },
         {
           "command": "quokka.switchHeaderSource",
+          "group": "navigation"
+        },
+        {
+          "command": "quokka.copyFileName",
           "group": "navigation"
         }
       ]

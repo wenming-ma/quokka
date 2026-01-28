@@ -96,6 +96,22 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(switchHeaderSource);
+
+    // Copy File Name command
+    const copyFileName = vscode.commands.registerCommand('quokka.copyFileName', async () => {
+        const editor = vscode.window.activeTextEditor;
+
+        if (!editor) {
+            vscode.window.showErrorMessage('No active editor found');
+            return;
+        }
+
+        const fileName = path.basename(editor.document.uri.fsPath);
+        await vscode.env.clipboard.writeText(fileName);
+        vscode.window.showInformationMessage(`Copied: ${fileName}`);
+    });
+
+    context.subscriptions.push(copyFileName);
 }
 
 function findFileInWorkspace(rootPath: string, baseName: string, extensions: string[], excludeFolders: string[]): Promise<string | null> {

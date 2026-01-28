@@ -20,6 +20,12 @@ Toggle between header and source files:
 - Searches the entire workspace
 - Automatically skips build directories
 
+### Copy File Name
+Copy the current file name (with extension) to clipboard.
+
+- Right-click in editor → `Quokka` → `Copy File Name`
+- Example: `main.cpp`
+
 ## Installation
 
 ### From Release
